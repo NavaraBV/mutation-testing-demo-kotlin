@@ -2,10 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.21"
+    id("info.solidsoft.pitest") version("1.9.11")
     application
 }
 
-group = "org.example"
+group = "nl.navara.mutationtesting.demo"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -26,4 +27,8 @@ tasks.withType<KotlinCompile> {
 
 application {
     mainClass.set("MainKt")
+}
+
+pitest {
+    junit5PluginVersion.set("1.0.0")
 }
